@@ -1,0 +1,95 @@
+.task {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  border: 1px solid var(--gray-400);
+  border-radius: 8px;
+  padding: 1rem;
+  height: 72px;
+  background: var(--gray-500);  
+}
+
+.task + .task {
+  margin-top: 0.75rem; 
+}
+
+.task button {
+  color: var(--gray-300);
+  background: transparent;
+  border: 0;
+
+  transition: 0.2s;
+}
+
+.task button svg:hover {
+  color: var(--danger);
+  cursor: pointer;
+}
+
+.container {
+  position: relative;
+  cursor: pointer;
+  padding-left: 35px;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkMark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  border: 2px solid var(--blue);
+  border-radius: 999px;
+  
+
+  transition: border 0.2s;
+}
+
+.container:hover .checkMark{
+  border: 2px solid var(--blue-dark);
+}
+
+.container input:checked ~ .checkMark {
+  background: var(--purple-dark);
+  border: 2px solid var(--purple-dark);
+}
+
+.container input:checked + span + span {
+  text-decoration: line-through;
+  color: var(--gray-300);
+}
+
+.container:hover input:checked ~ .checkMark {
+  background: var(--purple);
+  border: 2px solid var(--purple);
+
+}
+
+.container .checkMark:after {
+  content:'';
+  position: absolute;
+  display: none;
+  width: 3px;
+  height: 8px;
+  left: 6px;
+  top: 2px;
+  border: solid var(--white);
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.container input:checked ~ .checkMark:after{
+  display: block;
+}
