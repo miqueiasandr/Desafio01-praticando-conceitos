@@ -5,8 +5,8 @@ interface TaskProps {
   id: string,
   content: string,
   isComplete: boolean,
-  changeStatus: (id:string)=>void,
-  deleteTask: (id:string)=>void;
+  changeStatus: (id: string) => void,
+  deleteTask: (id: string) => void;
 }
 
 export function Task({ content, isComplete, id, changeStatus, deleteTask }: TaskProps) {
@@ -18,15 +18,15 @@ export function Task({ content, isComplete, id, changeStatus, deleteTask }: Task
         className={styles.container}
       >
 
-        <input 
-          type="checkbox" 
-          checked={isComplete} 
-          onChange={()=>{changeStatus(id)}}
+        <input
+          type="checkbox"
+          checked={isComplete}
+          onChange={() => { changeStatus(id) }}
         />
         <span className={styles.checkMark}></span>
         <span>{content}</span>
       </label>
-      <button onClick={()=>{deleteTask(id)}}>
+      <button onClick={() => { deleteTask(id) }}>
         <Trash size={20} />
       </button>
 

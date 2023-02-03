@@ -77,7 +77,7 @@ export function App() {
     checkConcludedTasks();
 
   }
-  
+
   function checkConcludedTasks() {
     let completedTasks = 0;
     tasks.forEach(task => {
@@ -85,10 +85,10 @@ export function App() {
         completedTasks++;
       }
     })
-     return completedTasks;
+    return completedTasks;
 
   }
-  
+
   const isNewTextTaskEmpty = newTextTask.length === 0;
   const concludedTasksNumber = checkConcludedTasks();
 
@@ -114,7 +114,6 @@ export function App() {
           </button>
         </div>
 
-
         <div className={styles.taskList}>
           <header>
             <div className={styles.amountTasks}>
@@ -127,9 +126,6 @@ export function App() {
               <span>{`${concludedTasksNumber} de ${tasks.length}`}</span>
             </div>
           </header>
-
-          
-
           {tasks.map(task => {
             return (
               <Task
@@ -142,8 +138,6 @@ export function App() {
               />
             );
           })}
-
-
           <div className={tasks.length !== 0 ? styles.createdTasksInvisible : styles.createdTasks}>
             <ClipboardText size={56} />
             <p>Você ainda não tem tarefas cadastradas</p>
